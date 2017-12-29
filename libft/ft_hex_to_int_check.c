@@ -6,7 +6,7 @@
 /*   By: ashih <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 00:11:16 by ashih             #+#    #+#             */
-/*   Updated: 2017/12/25 06:20:05 by ashih            ###   ########.fr       */
+/*   Updated: 2017/12/29 13:12:51 by ashih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int						ft_hex_to_int_check(char *str, int *n)
 	total = 0;
 	if (ft_strnequ(str, "0x", 2))
 		str += 2;
+	else
+		return (1);
 	if (!ft_strchr(hextable, ft_toupper(*str)))
 		return (1);
 	while (*str && ft_strchr(hextable, ft_toupper(*str)))
