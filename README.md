@@ -4,7 +4,7 @@ A height map wireframe renderer in C using [minilibx](https://github.com/qst0/ft
 <p float="left">
   <img src="https://github.com/ashih42/fdf/blob/master/Screenshots/perspective.png" width="280" />
   <img src="https://github.com/ashih42/fdf/blob/master/Screenshots/parallel.png" width="280" /> 
-  <img src="https://github.com/ashih42/fdf/blob/master/Screenshots/spherical.png" width="285" />
+  <img src="https://github.com/ashih42/fdf/blob/master/Screenshots/spherical.png" width="280" />
 </p>
 
 ## Prerequisites
