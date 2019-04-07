@@ -14,6 +14,8 @@
 
 int			mouse_button_down(int button, int x, int y, t_master *m)
 {
+	(void)x;
+	(void)y;
 	if (button == 1)
 		m->mouse.lmb_down = 1;
 	return (0);
@@ -21,6 +23,8 @@ int			mouse_button_down(int button, int x, int y, t_master *m)
 
 int			mouse_button_up(int button, int x, int y, t_master *m)
 {
+	(void)x;
+	(void)y;
 	if (button == 1)
 		m->mouse.lmb_down = 0;
 	return (0);

@@ -14,7 +14,7 @@ CC = gcc
 
 NAME = fdf
 
-CFLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra
 
 LIBFT = libft
 MINILIBX = minilibx

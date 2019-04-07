@@ -14,7 +14,7 @@
 
 int					compute_3d_params(t_map *map)
 {
-	int				i;
+	unsigned int	i;
 
 	find_map_height(map);
 	i = 0;
@@ -34,7 +34,7 @@ int					compute_3d_params(t_map *map)
 
 void				find_map_height(t_map *map)
 {
-	int				i;
+	unsigned int	i;
 	double			min;
 	double			max;
 

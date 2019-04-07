@@ -12,11 +12,11 @@
 
 #include "fdf.h"
 
-void		find_screen_coords(t_map *map, t_master *m)
+void				find_screen_coords(t_map *map, t_master *m)
 {
-	double	matrix[4][4];
-	int		i;
-	t_point	temp;
+	double			matrix[4][4];
+	unsigned int	i;
+	t_point			temp;
 
 	init_matrix(matrix, m);
 	i = 0;
@@ -32,7 +32,7 @@ void		find_screen_coords(t_map *map, t_master *m)
 	}
 }
 
-void		init_matrix(double matrix[4][4], t_master *m)
+void				init_matrix(double matrix[4][4], t_master *m)
 {
 	ft_bzero(matrix, sizeof(double) * 16);
 	matrix[0][0] = m->scale_x_factor;
@@ -45,8 +45,8 @@ void		init_matrix(double matrix[4][4], t_master *m)
 	mult_trans_matrix(matrix, m);
 }
 
-void		apply_transform(double matrix[4][4], t_point *point, t_point *temp,
-		t_master *m)
+void				apply_transform(double matrix[4][4], t_point *point,
+	t_point *temp, t_master *m)
 {
 	if (m->proj_mode == spherical_proj)
 	{
@@ -68,7 +68,7 @@ void		apply_transform(double matrix[4][4], t_point *point, t_point *temp,
 	}
 }
 
-void		apply_projection(t_point *point, t_point *temp, t_master *m)
+void				apply_projection(t_point *point, t_point *temp, t_master *m)
 {
 	if (m->proj_mode == perspect_proj)
 	{

@@ -12,17 +12,19 @@
 
 #include "fdf.h"
 
-int			read_file(char *filename, t_map *map)
+#define INVALID_LEN	((unsigned int)-1)
+
+int					read_file(char *filename, t_map *map)
 {
-	int		fd;
-	char	*line;
-	int		gnl_flag;
-	int		z;
-	t_list	*points;
+	int				fd;
+	char			*line;
+	int				gnl_flag;
+	int				z;
+	t_list			*points;
 
 	if ((fd = open(filename, O_RDONLY)) == -1)
 		return (ft_puterror(ERROR_OPEN_FILE));
-	map->x_length = -1;
+	map->x_length = INVALID_LEN;
 	z = 0;
 	points = 0;
 	while ((gnl_flag = get_next_line(fd, &line)) != 0)
@@ -41,12 +43,11 @@ int			read_file(char *filename, t_map *map)
 	return (0);
 }
 
-int			parse_line(char *line, t_map *map, int z, t_list **points)
+int					parse_line(char *line, t_map *map, int z, t_list **points)
 {
-	char	**str_y;
-	int		x;
-	int		line_length;
-	t_list	*row;
+	char			**str_y;
+	int				x;
+	unsigned int	line_length;
 
 	str_y = ft_strsplit(line, ' ');
 	if (str_y == 0)
@@ -54,7 +55,7 @@ int			parse_line(char *line, t_map *map, int z, t_list **points)
 	line_length = ft_char_array_length(str_y);
 	if (line_length == 0)
 		return (ft_puterror(ERROR_EMPTY_LINE));
-	if (map->x_length == -1)
+	if (map->x_length == INVALID_LEN)
 		map->x_length = line_length - 1;
 	if (line_length - 1 != map->x_length)
 		return (ft_puterror(ERROR_LINE_LENGTH));
@@ -70,11 +71,11 @@ int			parse_line(char *line, t_map *map, int z, t_list **points)
 	return (0);
 }
 
-int			add_point(int x, char *str_y, int z, t_list **points)
+int					add_point(int x, char *str_y, int z, t_list **points)
 {
-	int		y;
-	int		color;
-	t_point	*p;
+	int				y;
+	int				color;
+	t_point			*p;
 
 	if (ft_atoi_check(str_y, &y))
 		return (ft_puterror(ERROR_Y_VALUE));
@@ -95,10 +96,10 @@ int			add_point(int x, char *str_y, int z, t_list **points)
 	return (0);
 }
 
-int			build_points(t_map *map, t_list *points)
+int					build_points(t_map *map, t_list *points)
 {
-	int		i;
-	t_list	*temp;
+	unsigned int	i;
+	t_list			*temp;
 
 	if (!(map->points = malloc(sizeof(t_point *) * (map->x_length + 1) *
 			(map->z_length + 1))))

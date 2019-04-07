@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-int				free_all(t_master *m)
+int					free_all(t_master *m)
 {
 	free_points(m->map);
 	free_edges(m->map->edges);
@@ -25,9 +25,9 @@ int				free_all(t_master *m)
 	return (1);
 }
 
-void			free_points(t_map *map)
+void				free_points(t_map *map)
 {
-	int			i;
+	unsigned int	i;
 
 	if (map->points != 0)
 	{
@@ -41,10 +41,10 @@ void			free_points(t_map *map)
 	ft_memdel((void **)&(map->points));
 }
 
-void			free_edges(t_list *edges)
+void				free_edges(t_list *edges)
 {
-	t_edge		*e;
-	t_list		*temp;
+	t_edge			*e;
+	t_list			*temp;
 
 	while (edges != 0)
 	{
