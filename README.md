@@ -7,6 +7,9 @@ A height map wireframe renderer in C using [minilibx](https://github.com/qst0/ft
   <img src="https://github.com/ashih42/fdf/blob/master/Screenshots/spherical.png" width="280" />
 </p>
 
+## Learning Objectives
+* Implement the rasterization pipeline without OpenGL.
+
 ## Prerequisites
 
 You are on macOS with `gcc` and `make` installed.
